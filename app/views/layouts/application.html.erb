@@ -9,9 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <main>
-      <%= yield %>
-    </main>
+  <body class="antialiased bg-body text-body font-body">
+    <%= yield %>
   </body>
 </html>

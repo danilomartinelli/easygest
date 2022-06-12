@@ -1,0 +1,56 @@
+<section class="pt-20 md:pt-26 pb-6 bg-white" style="background-image: url('/assets/pattern-white.svg'); background-position: center;">
+  <div class="container px-4 mx-auto">
+    <div class="max-w-sm mx-auto">
+      <div class="mb-6 text-center">
+        <a class="inline-block mb-6" href="#">
+          <img class="h-16" src="/assets/smartgest-logo.svg" alt=""></a>
+        <h3 class="mb-4 text-2xl md:text-3xl font-bold">Entre em nossa comunidade</h3>
+        <p class="text-lg text-coolGray-500 font-medium">Comece sua jornada com o nosso produto</p>
+      </div>
+      <%= form_with model: @user, url: new_user_path do |form| %>
+        <div class="mb-6">
+          <%= form.label :email, "Email*", class: "block mb-2 text-coolGray-800 font-medium" %>
+          <%= form.email_field :email, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
+          <% unless form.object.errors[:email].empty? %>
+            <p class="-mb-6 text-red-500 ml-2">
+              <%= form.object.errors[:email][0] %>
+            </p>
+          <% end %>
+        </div>
+        <div class="mb-6">
+          <%= form.label :password, "Senha*", class: "block mb-2 text-coolGray-800 font-medium" %>
+          <%= form.password_field :password, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
+          <% unless form.object.errors[:password].empty? %>
+            <p class="-mb-6 text-red-500 ml-2">
+              <%= form.object.errors[:password][0] %>
+            </p>
+          <% end %>
+        </div>
+        <div class="mb-4">
+          <%= form.label :password_confirmation, "Confirme sua senha*", class: "block mb-2 text-coolGray-800 font-medium" %>
+          <%= form.password_field :password_confirmation, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
+          <% unless form.object.errors[:password_confirmation].empty? %>
+            <p class="-mb-6 text-red-500 ml-2">
+              <%= form.object.errors[:password_confirmation][0] %>
+            </p>
+          <% end %>
+        </div>
+        <div class="flex flex-wrap items-center justify-between mb-6">
+          <div class="w-full md:w-1/2 flex">
+            <label class="relative inline-flex items-center">
+              <input class="form-checkbox appearance-none" type="checkbox"><span class="ml-4 text-xs text-coolGray-800 font-medium">Lembrar de mim</span>
+            </label>
+          </div>
+          <div class="w-full md:w-auto">
+            <a class="inline-block text-xs font-medium text-green-500 hover:text-green-600" href="#">Esqueceu sua
+              senha?</a></div>
+        </div>
+        <%= form.submit "Cadastrar", class: "inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md shadow-sm" %>
+        <p class="text-center">
+          <span class="text-xs font-medium">Já tem uma conta?</span>
+          <a class="inline-block text-xs font-medium text-green-500 hover:text-green-600 hover:underline" href="#">Entre</a>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</section>

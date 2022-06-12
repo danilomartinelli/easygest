@@ -11,3 +11,7 @@
 }
 
 */
+
+.field_with_errors > input {
+    @apply border-red-400;
+}

@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   post "cadastrar", to: "users#create", as: :new_user
   get "cadastrar", to: "users#new", as: :new_user_view
 
-  resources :confirmations, only: [:create, :edit, :new], path: "confirmar-email", param: :confirmation_token
+  get "confirmar-email", to: "confirmations#new", as: :confirmation_view
+  post "confirmar-email", to: "confirmations#create", as: :confirmation
+  patch "confirmar-email/:confirmation_token", to: "confirmations#edit", as: :confirmation_edit
 end

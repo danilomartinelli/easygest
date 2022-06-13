@@ -6,7 +6,7 @@ class ConfirmationsController < ApplicationController
     if @user.present? && @user.unconfirmed?
       redirect_to root_path, notice: "Cheque seu email para confirmar sua conta."
     else
-      redirect_to :new_confirmation, alert: "Nós não encontramos um usuário com esse email ou já foi confirmado."
+      redirect_to :confirmation_view, alert: "Nós não encontramos um usuário com esse email ou já foi confirmado."
     end
   end
 
@@ -17,7 +17,7 @@ class ConfirmationsController < ApplicationController
       @user.confirm!
       redirect_to root_path, notice: "Sua conta foi confirmada."
     else
-      redirect_to :new_confirmation, alert: "Token inválido."
+      redirect_to :confirmation_view, alert: "Token inválido."
     end
   end
 

@@ -10,7 +10,7 @@
       <%= form_with model: @user, url: new_user_path do |form| %>
         <div class="mb-6">
           <%= form.label :email, "Email*", class: "block mb-2 text-coolGray-800 font-medium" %>
-          <%= form.email_field :email, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
+          <%= form.email_field :email, required: true, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
           <% unless form.object.errors[:email].empty? %>
             <p class="-mb-6 text-red-500 ml-2">
               <%= form.object.errors[:email][0] %>
@@ -19,7 +19,7 @@
         </div>
         <div class="mb-6">
           <%= form.label :password, "Senha*", class: "block mb-2 text-coolGray-800 font-medium" %>
-          <%= form.password_field :password, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
+          <%= form.password_field :password, required: true, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
           <% unless form.object.errors[:password].empty? %>
             <p class="-mb-6 text-red-500 ml-2">
               <%= form.object.errors[:password][0] %>
@@ -28,7 +28,7 @@
         </div>
         <div class="mb-4">
           <%= form.label :password_confirmation, "Confirme sua senha*", class: "block mb-2 text-coolGray-800 font-medium" %>
-          <%= form.password_field :password_confirmation, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
+          <%= form.password_field :password_confirmation, required: true, placeholder: "************", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"  %>
           <% unless form.object.errors[:password_confirmation].empty? %>
             <p class="-mb-6 text-red-500 ml-2">
               <%= form.object.errors[:password_confirmation][0] %>

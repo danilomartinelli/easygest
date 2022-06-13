@@ -9,7 +9,7 @@
       <%= form_with model: @user, url: :confirmation do |form| %>
         <div class="mb-6">
           <%= form.label :email, "Email*", class: "block mb-2 text-coolGray-800 font-medium" %>
-          <%= form.email_field :email, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
+          <%= form.email_field :email, required: true, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
         </div>
         <%= form.submit "Confirmar Email", class: "inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md shadow-sm" %>
       <% end %>

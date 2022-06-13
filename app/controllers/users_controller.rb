@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       if @user.update(update_user_params)
         if params[:user][:unconfirmed_email].present?
           @user.send_confirmation_email!
-          redirect_to root_path, notice: "Cheque seu email para confirmar sua conta."
+          redirect_to root_path, notice: "Verifique seu email para confirmar sua conta."
         else
           redirect_to root_path, notice: "Conta atualizada."
         end

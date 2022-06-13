@@ -20,6 +20,10 @@ module Authentication
     redirect_to root_path, alert: "Você está logado." if user_signed_in?
   end
 
+  def authenticate_user!
+    redirect_to :login, alert: "Você precisa logar para acessar essa página." unless user_signed_in?
+  end
+
   private
 
   def current_user
@@ -29,5 +33,4 @@ module Authentication
   def user_signed_in?
     Current.user.present?
   end
-
 end

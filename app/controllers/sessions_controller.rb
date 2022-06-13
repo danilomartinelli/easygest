@@ -24,6 +24,5 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Deslogado."
   end
 
-  def new
-  end
+  def new; end
 end

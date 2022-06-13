@@ -17,8 +17,7 @@ class User < ApplicationRecord
   validates :password, confirmation: { allow_blank: true, message: "Deve ser igual a senha" }
 
   def confirm!
-    self.confirmed_at = Time.zone.now
-    save!
+    update_columns(confirmed_at: Time.current)
   end
 
   def confirmed?

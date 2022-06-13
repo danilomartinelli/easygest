@@ -27,6 +27,10 @@
               senha?</a></div>
         </div>
         <%= form.submit "Entrar", class: "inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md shadow-sm" %>
+        <p class="text-center">
+          <span class="text-xs font-medium">Ainda não tem uma conta?</span>
+          <%= link_to "Se cadastre", :new_user_view,  class: "inline-block text-xs font-medium text-green-500 hover:text-green-600 hover:underline" %>
+        </p>
       <% end %>
     </div>
   </div>

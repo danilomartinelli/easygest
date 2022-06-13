@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   CONFIRMATION_TOKEN_EXPIRY = 1.day
+  MAILER_FROM_EMAIL = "no-reply@easygest.xyz".freeze
 
   has_secure_password validations: false
 
@@ -30,6 +31,11 @@ class User < ApplicationRecord
 
   def generate_confirmation_token
     signed_id expires_in: CONFIRMATION_TOKEN_EXPIRY, purpose: :confirm_email
+  end
+
+  def send_confirmation_email!
+    confirmation_token = generate_confirmation_token
+    UserMailer.confirmation(self, confirmation_token).deliver_now
   end
 
   private

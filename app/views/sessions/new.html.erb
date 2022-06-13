@@ -23,8 +23,8 @@
             </label>
           </div>
           <div class="w-full md:w-auto">
-            <a class="inline-block text-xs font-medium text-green-500 hover:text-green-600" href="#">Esqueceu sua
-              senha?</a></div>
+            <%= link_to "Esqueceu sua senha?", :new_password_view,  class: "inline-block text-xs font-medium text-green-500 hover:text-green-600" %>
+          </div>
         </div>
         <%= form.submit "Entrar", class: "inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-green-500 hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md shadow-sm" %>
         <p class="text-center">

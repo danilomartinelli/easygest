@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
         redirect_to :confirmation_view, alert: "Email ainda não confirmado."
       elsif @user.authenticate(params[:user][:password])
         login @user
+        remember(@user) if params[:user][:remember_me] == "1"
         redirect_to root_path, notice: "Logado."
       else
         flash.now[:alert] = "Email ou senha incorreto."
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    forget(current_user)
     logout
     redirect_to root_path, notice: "Deslogado."
   end

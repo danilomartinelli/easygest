@@ -19,7 +19,8 @@
         <div class="flex flex-wrap items-center justify-between mb-6">
           <div class="w-full md:w-1/2 flex">
             <label class="relative inline-flex items-center">
-              <input class="form-checkbox appearance-none" type="checkbox"><span class="ml-4 text-xs text-coolGray-800 font-medium">Lembrar de mim</span>
+              <%= form.check_box :remember_me, class: "form-checkbox appearance-none" %>
+              <span class="ml-4 text-xs text-coolGray-800 font-medium">Lembrar de mim</span>
             </label>
           </div>
           <div class="w-full md:w-auto">

@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_secure_password validations: false
 
+  has_secure_token :remember_token
+
   before_save :downcase_email
 
   before_save :downcase_unconfirmed_email
@@ -26,9 +28,10 @@ class User < ApplicationRecord
 
   def confirm!
     if unconfirmed_or_reconfirming?
-      if unconfirmed_email.present?
-        return false unless update(email: unconfirmed_email, unconfirmed_email: nil)
+      if unconfirmed_email.present? && !update(email: unconfirmed_email, unconfirmed_email: nil)
+        return false
       end
+
       update_columns(confirmed_at: Time.current)
     else
       false
@@ -36,11 +39,7 @@ class User < ApplicationRecord
   end
 
   def confirmable_email
-    if unconfirmed_email.present?
-      unconfirmed_email
-    else
-      email
-    end
+    unconfirmed_email.presence || email
   end
 
   def reconfirming?
@@ -81,6 +80,7 @@ class User < ApplicationRecord
 
   def downcase_unconfirmed_email
     return if unconfirmed_email.nil?
+
     self.unconfirmed_email = unconfirmed_email.downcase
   end
 

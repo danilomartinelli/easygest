@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "senha/resetar/:password_reset_token", to: "passwords#edit", as: :edit_password
   put "senha/resetar/:password_reset_token", to: "passwords#update", as: :update_password
 
-  put "account", to: "users#update"
-  get "account", to: "users#edit"
-  delete "account", to: "users#destroy"
+  put "conta", to: "users#update", as: :update_account
+  get "conta", to: "users#edit", as: :account_view
+  delete "conta", to: "users#destroy", as: :delete_account
 end

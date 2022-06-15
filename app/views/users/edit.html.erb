@@ -6,7 +6,7 @@
           <img class="h-16" src="/assets/smartgest-logo.svg" alt=""></a>
         <h3 class="mb-4 text-2xl md:text-3xl font-bold">Sua Conta</h3>
       </div>
-      <%= form_with model: @user, url: account_path, method: :put do |form| %>
+      <%= form_with model: @user, url: :update_account, method: :put do |form| %>
         <div class="mb-6">
           <%= form.label :unconfirmed_email, "Novo Email", class: "block mb-2 text-coolGray-800 font-medium" %>
           <%= form.email_field :unconfirmed_email, placeholder: "exemplo@email.com.br", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>

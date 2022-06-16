@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "confirmar-email/:confirmation_token", to: "confirmations#edit", as: :edit_confirmation
 
   post "entrar", to: "sessions#create", as: :login
-  delete "sair", to: "sessions#destroy", as: :logout
+  get "sair", to: "sessions#destroy", as: :logout
   get "entrar", to: "sessions#new", as: :login_view
 
   post "senha/resetar", to: "passwords#create", as: :new_password
@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   put "conta", to: "users#update", as: :update_account
   get "conta", to: "users#edit", as: :account_view
   delete "conta", to: "users#destroy", as: :delete_account
+
+  get "dashboard", to: "dashboard#index", as: :dashboard_view
 end

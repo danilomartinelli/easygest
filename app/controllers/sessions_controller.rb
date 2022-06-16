@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       elsif @user.authenticate(params[:user][:password])
         login @user
         remember(@user) if params[:user][:remember_me] == "1"
-        redirect_to root_path, notice: "Logado."
+        redirect_to :dashboard_view, notice: "Logado."
       else
         flash.now[:alert] = "Email ou senha incorreto."
         render :new, status: :unprocessable_entity

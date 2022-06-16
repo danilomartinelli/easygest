@@ -9,7 +9,7 @@ module Authentication
 
   def forget(user)
     cookies.delete :remember_token
-    user.regenerate_remember_token
+    user.regenerate_remember_token if user.remember_token.nil?
   end
 
   def remember(user)

@@ -26,6 +26,21 @@ class User < ApplicationRecord
 
   validates :password, confirmation: { allow_blank: true, message: "Deve ser igual a senha" }
 
+  def self.authenticate_by(attributes)
+    passwords, identifiers = attributes.to_h.partition do |name, value|
+      !has_attribute?(name) && has_attribute?("#{name}_digest")
+    end.map(&:to_h)
+
+    raise ArgumentError, "Um ou mais argumentos são requeridos" if passwords.empty?
+    raise ArgumentError, "Um ou mais argumentos são requeridos" if identifiers.empty?
+    if (record = find_by(identifiers))
+      record if passwords.count { |name, value| record.public_send(:"authenticate_#{name}", value) } == passwords.size
+    else
+      new(passwords)
+      nil
+    end
+  end
+
   def confirm!
     if unconfirmed_or_reconfirming?
       if unconfirmed_email.present? && !update(email: unconfirmed_email, unconfirmed_email: nil)

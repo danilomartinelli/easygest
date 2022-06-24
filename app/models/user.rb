@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :accounts
+  has_many :workspaces, through: :accounts
+
   CONFIRMATION_TOKEN_EXPIRY = 10.minutes
   PASSWORD_RESET_TOKEN_EXPIRATION = 10.minutes
   MAILER_FROM_EMAIL = "no-reply@easygest.xyz".freeze

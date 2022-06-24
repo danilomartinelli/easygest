@@ -1,0 +1,25 @@
+<section class="fixed top-0 left-0 right-0 bottom-0 flex items-center w-full h-full p-4 bg-coolGray-800 bg-opacity-80 overflow-y-auto">
+  <div class="max-w-lg w-full m-auto p-8 bg-white rounded-md">
+    <div class="mb-8 bg-coolGray-50 border border-coolGray-100 rounded-md">
+      <img class="rounded-md" src="/assets/welcome.jpeg" alt="">
+    </div>
+    <p class="mb-1 text-2xl font-semibold text-coolGray-900">Bem vindo ao Easygest</p>
+    <p class="mb-4 text-sm font-medium text-coolGray-500">Crie seu primeiro workspace e comece a utilizar a nossa ferramenta!</p>
+    <%= form_with model: @workspace, url: new_workspace_path do |form| %>
+      <div class="mb-6">
+        <%= form.label :name, "Nome*", class: "block mb-2 text-coolGray-800 font-medium" %>
+        <%= form.text_field :name, required: true, placeholder: "Workspace 1", class: "appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" %>
+        <% unless form.object.errors[:name].empty? %>
+          <p class="-mb-6 text-red-500 ml-2">
+            <%= form.object.errors[:name][0] %>
+          </p>
+        <% end %>
+      </div>
+      <div class="flex flex-wrap justify-end -m-2">
+        <div class="w-full md:w-1/2 p-2">
+          <%= form.submit "Criar novo Workspace", class: "flex flex-wrap justify-center w-full px-4 py-2.5 bg-green-500 hover:bg-green-600 font-medium text-base text-white border border-green-500 rounded-md shadow-button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

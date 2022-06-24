@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   delete "conta", to: "users#destroy", as: :delete_account
 
   get "dashboard", to: "dashboard#index", as: :dashboard_view
+  get "dashboard/bem-vindo", to: "dashboard#first_access", as: :welcome_view
+
+  post "workspaces", to: "workspaces#create", as: :new_workspace
 end

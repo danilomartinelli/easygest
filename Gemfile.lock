@@ -112,6 +112,7 @@ GEM
     geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    haikunate (0.1.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.0)
@@ -312,6 +313,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   geocoder
+  haikunate
   importmap-rails
   jbuilder
   pg (~> 1.1)
